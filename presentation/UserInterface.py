@@ -20,11 +20,10 @@ class UserInterface:
             print()
             print("---> Options:")
             print("1. Reload data from the dataset")
-            print("2. Persist data to a new file")
-            print("3. Display records")
-            print("4. Create a new record")
-            print("5. Edit a record")
-            print("6. Delete a record")
+            print("2. Display records")
+            print("3. Create a new record")
+            print("4. Edit a record")
+            print("5. Delete a record")
             print("0. Exit")
             print()
             choice = input("---> Enter your choice: ")
@@ -33,12 +32,9 @@ class UserInterface:
                 self.business.load_data()
 
             elif choice == "2":
-                self.business.save_data()
-
-            elif choice == "3":
                 self.display_records()
 
-            elif choice == "4":
+            elif choice == "3":
                 print("Creating a new record:")
                 ref_number = input("Enter Reference Number: ")
                 title_en = input("Enter Title (English): ")
@@ -57,13 +53,13 @@ class UserInterface:
                      other_transport, lodging, meals, other_expenses, total])
                 self.business.create_new_record(new_record)
 
-            elif choice == "5":
+            elif choice == "4":
                 record_ref_number = input("Enter Reference Number of the record to edit: ")
                 field_name = input("Enter the field name to edit: ")
                 new_value = input(f"Enter the new value for {field_name}: ")
                 self.business.edit_record(record_ref_number, field_name, new_value)
 
-            elif choice == "6":
+            elif choice == "5":
                 index = input("Enter index number of the record to delete: ")
                 self.business.delete_record(int(index))
 
