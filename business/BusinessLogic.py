@@ -8,7 +8,9 @@ class BusinessLogic:
         This class is responsible for managing in-memory travel records and interacting with the persistence layer.
         """
         self.records = []
-        self.persistence = DataPersistence('travelq.csv')
+        self.persistence = DataPersistence(host='localhost', user='root', password='rudraBhatt#123',
+                                           database='travelq')
+        self.load_data()
 
     def load_data(self):
         """Reload data from the dataset by reading from the CSV file."""
