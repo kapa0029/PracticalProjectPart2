@@ -7,7 +7,6 @@ class UserInterface:
     """Presentation layer for user interaction."""
 
     def __init__(self):
-
         """Initializes the UserInterface."""
         self.records = []
         self.business = BusinessLogic()

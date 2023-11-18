@@ -2,6 +2,12 @@ from persistence.DataPersistence import DataPersistence
 
 
 class BusinessLogic:
+    """
+        BusinessLogic class manages in-memory travel records and interacts with the persistence layer.
+
+        This class provides functionality to load, save, create, edit, and delete travel records.
+        It initializes the persistence layer and loads data from the specified database during instantiation.
+        """
     def __init__(self):
         """Initialize the BusinessLogic class.
 
