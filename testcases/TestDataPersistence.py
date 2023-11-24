@@ -1,7 +1,6 @@
 import unittest
 from modules.travelrecord import TravelRecord
 
-
 class TestTravelRecord(unittest.TestCase):
     """Test cases for the TravelRecord class."""
 

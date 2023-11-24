@@ -2,22 +2,7 @@ import mysql.connector
 from modules.travelrecord import TravelRecord
 
 class DataPersistence:
-    """
-    DataPersistence class handles database connectivity and operations.
-
-    This class provides methods to create a table, read records from the database, and save records to the database.
-    """
-
     def __init__(self, host, user, password, database):
-        """
-        Initialize the DataPersistence class.
-
-        Args:
-            host (str): The hostname or IP address of the MySQL server.
-            user (str): The MySQL user to authenticate as.
-            password (str): The password to authenticate with.
-            database (str): The name of the database to use.
-        """
         self.connection = mysql.connector.connect(
             host=host,
             user=user,
@@ -27,11 +12,6 @@ class DataPersistence:
         self.cursor = self.connection.cursor()
 
     def create_table(self):
-        """
-        Create a table in the database if it does not exist.
-
-        The table structure is defined to store travel records.
-        """
         create_table_query = """
         CREATE TABLE IF NOT EXISTS travel_records (
             ref_number VARCHAR(255),
@@ -51,24 +31,12 @@ class DataPersistence:
         self.connection.commit()
 
     def read_records(self):
-        """
-        Read travel records from the database and return them as a list of TravelRecord objects.
-
-        Returns:
-            list: A list of TravelRecord objects.
-        """
-        select_query = "SELECT * FROM travel_records"
+        select_query = "SELECT * FROM travel_data"
         self.cursor.execute(select_query)
         records = [TravelRecord(row) for row in self.cursor.fetchall()]
         return records
 
     def save_records(self, records):
-        """
-        Save a list of TravelRecord objects to the database.
-
-        Args:
-            records (list): A list of TravelRecord objects to save.
-        """
         self.create_table()  # Ensure the table exists
 
         insert_query = """
