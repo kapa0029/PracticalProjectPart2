@@ -1,6 +1,7 @@
 import mysql.connector
 from modules.travelrecord import TravelRecord
 
+
 class DataPersistence:
     def __init__(self, host, user, password, database):
         self.connection = mysql.connector.connect(
@@ -13,7 +14,7 @@ class DataPersistence:
 
     def create_table(self):
         create_table_query = """
-        CREATE TABLE IF NOT EXISTS travel_records (
+        CREATE TABLE IF NOT EXISTS travel_data (
             ref_number VARCHAR(255),
             title_en VARCHAR(255),
             purpose_en VARCHAR(255),
@@ -40,7 +41,7 @@ class DataPersistence:
         self.create_table()  # Ensure the table exists
 
         insert_query = """
-        INSERT INTO travel_records
+        INSERT INTO travel_data
         (ref_number, title_en, purpose_en, start_date, end_date, airfare, other_transport, lodging, meals, other_expenses, total)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
@@ -62,3 +63,21 @@ class DataPersistence:
             self.cursor.execute(insert_query, values)
 
         self.connection.commit()
+
+    def search_records(self, criteria):
+        # Build the SQL query dynamically based on the provided criteria
+        search_query = "SELECT * FROM travel_data WHERE "
+        conditions = []
+        values = []
+
+        for column, value in criteria.items():
+            conditions.append(f"{column} = %s")
+            values.append(str(value))
+
+        search_query += " AND ".join(conditions)
+
+        # Execute the query
+        self.cursor.execute(search_query, tuple(values))
+        matching_records = [TravelRecord(row) for row in self.cursor.fetchall()]
+        return matching_records
+

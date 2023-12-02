@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-from business.BusinessLogic import BusinessLogic
+from modules.business.BusinessLogic import BusinessLogic
 from modules.travelrecord import TravelRecord
 
 

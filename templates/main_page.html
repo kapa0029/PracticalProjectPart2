@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
+        #presenter{
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 10px;
+            margin-top: 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to my Flask Application!</h1>
+    <p id="presenter"><b>Presented to you by Sneha Ka Patel</b></p>
+    <ul>
+        <li><a href="/add_record">Add Record</a></li>
+        <li><a href="/view_records">View Records</a></li>
+        <li><a href="/search_records">Search Records</a></li>
+        <form action="/reload_data" method="post">
+            <button type="submit">Reload Data</button>
+        </form>
+        <!-- Add more options as needed -->
+    </ul>
+
+</body>
+<footer>
+    <p><b>Presented to you by Sneha Ka Patel</b></p>
+</footer>
+</html>

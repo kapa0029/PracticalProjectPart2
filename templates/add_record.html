@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
+        #presenter{
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Record Page</h1>
+    <p id="presenter"><b>Presented to you by Sneha Ka Patel</b></p>
+
+    <form action="/add_record" method="post">
+        <label for="ref_number">Reference Number:</label>
+        <input type="text" name="ref_number" id="ref_number" required><br>
+
+        <label for="title_en">Title (English):</label>
+        <input type="text" name="title_en" id="title_en" required><br>
+
+        <label for="purpose_en">Purpose (English):</label>
+        <input type="text" name="purpose_en" id="purpose_en" required><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="text" name="start_date" id="start_date" required><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="text" name="end_date" id="end_date" required><br>
+
+        <label for="airfare">Airfare:</label>
+        <input type="text" name="airfare" id="airfare" required><br>
+
+        <label for="other_transport">Other Transport:</label>
+        <input type="text" name="other_transport" id="other_transport" required><br>
+
+        <label for="lodging">Lodging:</label>
+        <input type="text" name="lodging" id="lodging" required><br>
+
+        <label for="meals">Meals:</label>
+        <input type="text" name="meals" id="meals" required><br>
+
+        <label for="other_expenses">Other Expenses:</label>
+        <input type="text" name="other_expenses" id="other_expenses" required><br>
+
+        <label for="total">Total:</label>
+        <input type="text" name="total" id="total" required><br>
+
+        <input type="submit" value="Add Record">
+    </form>
+
+</body>
+<footer>
+        <p><b>Presented to you by Sneha Ka Patel</b></p>
+        <p><a href="/">Go to Main Page</a></p>
+    </footer>
+</html>

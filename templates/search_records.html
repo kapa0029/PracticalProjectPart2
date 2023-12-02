@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Records</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        table, th, td {
+            font-size: 14px;
+            color: #333;
+        }
+
+        p.no-records {
+            text-align: center;
+            color: #777;
+        }
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
+        #presenter{
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Records</h1>
+    <p id="presenter"><b>Presented to you by Sneha Ka Patel</b></p>
+    <p>Enter the fields based on which you want to perform search operation. Leave the rest of the fields empty. </p>
+    <P>If a record meets at least one of the criteria, it will be included in the result.</P>
+    <!-- Add a form for search criteria -->
+    <form action="/search_results" method="post">
+    <label for="ref_number">Reference Number:</label>
+    <input type="text" name="ref_number" id="ref_number"><br>
+
+    <label for="title_en">Title (English):</label>
+    <input type="text" name="title_en" id="title_en"><br>
+
+    <label for="purpose_en">Purpose (English):</label>
+    <input type="text" name="purpose_en" id="purpose_en"><br>
+
+    <label for="start_date">Start Date:</label>
+    <input type="text" name="start_date" id="start_date"><br>
+
+    <label for="end_date">End Date:</label>
+    <input type="text" name="end_date" id="end_date"><br>
+
+    <label for="airfare">Airfare:</label>
+    <input type="text" name="airfare" id="airfare"><br>
+
+    <label for="other_transport">Other Transport:</label>
+    <input type="text" name="other_transport" id="other_transport"><br>
+
+    <label for="lodging">Lodging:</label>
+    <input type="text" name="lodging" id="lodging"><br>
+
+    <label for="meals">Meals:</label>
+    <input type="text" name="meals" id="meals"><br>
+
+    <label for="other_expenses">Other Expenses:</label>
+    <input type="text" name="other_expenses" id="other_expenses"><br>
+
+    <label for="total">Total:</label>
+    <input type="text" name="total" id="total"><br>
+
+    <!-- Add more fields here -->
+
+    <input type="submit" value="Search">
+</form>
+
+    {% if records %}
+        <table>
+            <tr>
+                <th>Reference Number</th>
+                <th>Title (English)</th>
+                <th>Purpose (English)</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Airfare</th>
+                <th>Other Transport</th>
+                <th>Lodging</th>
+                <th>Meals</th>
+                <th>Other Expenses</th>
+                <th>Total</th>
+                <!-- Add more columns as needed -->
+            </tr>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.ref_number }}</td>
+                    <td>{{ record.title_en }}</td>
+                    <td>{{ record.purpose_en }}</td>
+                    <td>{{ record.start_date }}</td>
+                    <td>{{ record.end_date }}</td>
+                    <td>{{ record.airfare }}</td>
+                    <td>{{ record.other_transport }}</td>
+                    <td>{{ record.lodging }}</td>
+                    <td>{{ record.meals }}</td>
+                    <td>{{ record.other_expenses }}</td>
+                    <td>{{ record.total }}</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p></p>
+    {% endif %}
+</body>
+<footer>
+        <p><b>Presented to you by Sneha Ka Patel</b></p>
+        <p><a href="/">Go to Main Page</a></p>
+    </footer>
+</html>

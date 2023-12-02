@@ -1,13 +1,15 @@
 import unittest
 from modules.travelrecord import TravelRecord
 
+
 class TestTravelRecord(unittest.TestCase):
     """Test cases for the TravelRecord class."""
 
     def test_init(self):
         """Test the initialization of the TravelRecord object."""
         # Arrange
-        row = ['T1', '', 'Title1', '', '', 'Purpose1', '', '2023-01-01', '2023-01-05', '', '', '100', '50', '200', '150', '25', '525']
+        row = ['T1', '', 'Title1', '', '', 'Purpose1', '', '2023-01-01', '2023-01-05', '', '', '100', '50', '200',
+               '150', '25', '525']
 
         # Act
         travel_record = TravelRecord(row)
@@ -24,6 +26,7 @@ class TestTravelRecord(unittest.TestCase):
         self.assertEqual(travel_record.meals, '150')
         self.assertEqual(travel_record.other_expenses, '25')
         self.assertEqual(travel_record.total, '525')
+
 
 if __name__ == '__main__':
     unittest.main()
